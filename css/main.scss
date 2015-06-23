@@ -3,30 +3,29 @@
 ---
 @charset "utf-8";
 
+// Colors
+$black:       #000;
+$white:       #fff;
+$gray:        #aaa;
+$graylight:   #f1f1f1;
+$graydark:    #777;
+$orange:      #CC4919; // 2013
+$blue:        #3493AD; // 2013
+$darkBrown:   #2B231C; // 2013
+$green:       #008808;
+$bodyColor:   #333;
+$borderColor: #ddd;
 
+// Fonts
+$headlineFont: 'Signika', Georgia, serif;
+$bodyFont:     'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+// Links
+$navLinkColor: #999;
+$navLinkHover: $blue;
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
+// Misc.
+$iphone6Landscape:   736;
 
 
 // Using media queries with like this:
@@ -36,17 +35,21 @@ $on-laptop:        800px;
 //         padding-left: $spacing-unit / 2;
 //     }
 // }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+// @mixin media-query($device) {
+//     @media screen and (max-width: $device) {
+//         @content;
+//     }
+// }
+
+@mixin respond-to($breakpoint) {
+  @media only screen and (max-width: $breakpoint + px) {
+    @content;
+  }
 }
-
-
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting"
+  "base",
+  "landing",
+  "vendor/bootstrap3-grid"
 ;

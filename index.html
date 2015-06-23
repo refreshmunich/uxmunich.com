@@ -2,22 +2,41 @@
 layout: default
 ---
 
-<div class="home">
+<div class="container landing">
 
-  <h1 class="page-heading">Posts</h1>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-md-offset-3">
+      <h1>UX Munich</h1>
+      <h2>For designers and developers who build great user experiences - together</h2>
+    </div>
+  </div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  <div class="row">
+    <div class="col-sm-6 col-md-3 col-md-offset-3">
+      <a class="uxm-logo" href="http://2013.uxmunich.com/">UX Munich</a>
+      <h3><a href="http://2013.uxmunich.com/">2013</a></h3>
+      <h4><a href="http://2013.uxmunich.com/">14-15 March</a></h4>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <a class="uxm-logo" href="http://2015.uxmunich.com/">UX Munich</a>
+      <h3><a href="http://2015.uxmunich.com/">2015</a></h3>
+      <h4><a href="http://2015.uxmunich.com/">19-20 March</a></h4>
+    </div>
+  </div>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+  <div class="row footer">
+    <div class="col-sm-12">
+      <p>
+        Refresh Munich e.V<br>
+        Roßmarkt 6<br>
+        80331 München<br>
+        Germany
+      </p>
+      <p>
+        Registergericht: Amtsgericht München<br>
+        Registernummer: VR 204536<br>
+        USt-IdNr. DE815414689<br>
+      </p>
+    </div>
+  </div>
 </div>

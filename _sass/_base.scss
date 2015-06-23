@@ -1,204 +1,101 @@
-/**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-    margin: 0;
-    padding: 0;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
 }
 
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
 
-
-/**
- * Basic styling
- */
 body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
+  font: 400 16px/1.5em $bodyFont;
+  color: $bodyColor;
+  background-color: $white;
 }
 
-
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+h1 {
+  font: 600 2.5em/1.4em $headlineFont;
+  color: $bodyColor;
 }
 
-
-
-/**
- * Images
- */
-img {
-    max-width: 100%;
-    vertical-align: middle;
+h2 {
+  font: 600 1.5em/1.5em $headlineFont;
 }
 
-
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
+h3 {
+  font-weight: 600;
+  font-size: 1.25em; // 20/16
+  line-height: 1.5em;
+  font-family: $bodyFont;
 }
 
-figcaption {
-    font-size: $small-font-size;
+h4 {
+  font: 600 1.125em/1.5em $bodyFont; // 18/16
 }
 
+.lead {
+  font-size: 1.3em;
+  line-height: 1.45em;
 
-
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
+  @include respond-to(768) {
+    font-size: 1.1em;
+  }
 }
 
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
-}
-
-
-
-/**
- * Links
- */
 a {
-    color: $brand-color;
-    text-decoration: none;
+  outline: none;
+  &:link, &:visited { color: $blue; }
+  &:hover, &:active { color: $orange; }
+}
 
-    &:visited {
-        color: darken($brand-color, 15%);
-    }
+hr {
+  border: 0;
+  border-bottom: 1px solid $borderColor;
+  margin: 2em 0;
+}
 
-    &:hover {
-        color: $text-color;
-        text-decoration: underline;
-    }
+img {
+  max-width: 100%;
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 20px;
+  font-style: italic;
+  color: #999;
+}
+
+.uxm-logo {
+  background-image:url(data:image/png;base64,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);
 }
 
 
+//-- States
+.is-hidden {
+  display: none;
+}
 
-/**
- * Blockquotes
- */
-blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-
-    > :last-child {
-        margin-bottom: 0;
-    }
+// Screen Readers only (Bootstrap)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
 
 
-
-/**
- * Code formatting
- */
-pre,
-code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+.is-hidden, .on-mobile {
+  display: none;
 }
 
-code {
-    padding: 1px 5px;
-}
-
-pre {
-    padding: 8px 12px;
-    overflow-x: scroll;
-
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
-}
-
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
+.is-visible {
+  display: block;
 }

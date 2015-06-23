@@ -1,0 +1,57 @@
+.landing {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: $orange;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    font-size: 3em;
+    color: $orange;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0 0 2em;
+    font-weight: 400;
+  }
+
+  h3 {
+    margin: 0;
+    color: $orange;
+    font-weight: bold;
+    font-size: 2.5em;
+  }
+
+  h4 {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 1em;
+    text-transform: uppercase;
+
+    a {
+      color: #999;
+    }
+  }
+
+  .footer {
+    padding-top: 6em;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #999;
+  }
+}
+
+.uxm-logo {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  text-indent: -9000px;
+}
